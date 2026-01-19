@@ -1,103 +1,130 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
-  const services = [
+  const categories = [
     {
-      title: "Выставочные стенды",
-      description: "Проектирование и изготовление стендов для выставок любого масштаба",
-      icon: "Layers",
-      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/fcd161a7-4017-4678-8fb3-1dfdb4b2a6f0.jpg"
+      title: "Стенды для школы",
+      description: "Классные уголки, кабинеты по предметам, патриотическое воспитание",
+      icon: "GraduationCap",
+      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/ea210587-a711-4d83-8f46-c1358d0153e7.jpg",
+      subcategories: ["Классные уголки", "Кабинеты", "Библиотека", "Столовая"]
     },
     {
-      title: "Наружная реклама",
-      description: "Вывески, световые короба, баннеры и рекламные конструкции",
-      icon: "Lightbulb",
-      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/d4c4ce6b-3a06-4342-b8dd-a8beace37e70.jpg"
+      title: "Стенды для детского сада",
+      description: "Оформление групп, музыкальных залов, уголки здоровья",
+      icon: "Baby",
+      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/956b2dca-f155-4669-b95f-d1b66cd5b89b.jpg",
+      subcategories: ["Оформление групп", "Музыкальный зал", "Медкабинет"]
     },
     {
-      title: "Информационные стенды",
-      description: "Стенды для офисов, школ, медицинских учреждений",
+      title: "Охрана труда",
+      description: "Пожарная безопасность, электробезопасность, гражданская оборона",
+      icon: "Shield",
+      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/5119a303-aa3c-464a-9253-8942312dbccc.jpg",
+      subcategories: ["Пожарная безопасность", "Электробезопасность", "Первая помощь"]
+    },
+    {
+      title: "Стенды информационные",
+      description: "Перекидные системы, пробковые доски, мобильные стенды",
       icon: "Info",
-      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/30e8a29d-2ea7-4ee6-9c5c-869e99f25e13.jpg"
+      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/30e8a29d-2ea7-4ee6-9c5c-869e99f25e13.jpg",
+      subcategories: ["Перекидные системы", "Пробковые доски", "Напольные"]
+    },
+    {
+      title: "Стенды для улицы",
+      description: "Настенные и напольные конструкции, навигация, парковые стенды",
+      icon: "Map",
+      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/d4c4ce6b-3a06-4342-b8dd-a8beace37e70.jpg",
+      subcategories: ["Настенные", "Напольные", "Навигация"]
     },
     {
       title: "Вывески и таблички",
-      description: "Офисные таблички, адресные вывески, навигационные указатели",
+      description: "Офисные таблички, адресные вывески, шрифт Брайля",
       icon: "Tag",
-      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/30e8a29d-2ea7-4ee6-9c5c-869e99f25e13.jpg"
+      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/fcd161a7-4017-4678-8fb3-1dfdb4b2a6f0.jpg",
+      subcategories: ["Офисные", "Адресные", "С шрифтом Брайля"]
     }
   ];
 
   const advantages = [
     {
-      icon: "Award",
-      title: "Опыт более 10 лет",
-      description: "Профессиональная команда с огромным опытом в рекламной индустрии"
-    },
-    {
-      icon: "Zap",
-      title: "Быстрое производство",
-      description: "Изготовление заказов в кратчайшие сроки без потери качества"
-    },
-    {
       icon: "Truck",
-      title: "Доставка по России",
-      description: "Бесплатная доставка выставочных конструкций по всей стране"
+      title: "Бесплатная доставка",
+      description: "По всей территории России"
     },
     {
-      icon: "Shield",
-      title: "Гарантия качества",
-      description: "Используем только проверенные материалы и комплектующие"
-    }
-  ];
-
-  const portfolio = [
-    {
-      title: "Стенд для выставки EXPO",
-      category: "Выставочные стенды",
-      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/fcd161a7-4017-4678-8fb3-1dfdb4b2a6f0.jpg"
+      icon: "Factory",
+      title: "Производитель",
+      description: "Прямые цены без наценок"
     },
     {
-      title: "Световая вывеска ресторана",
-      category: "Наружная реклама",
-      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/d4c4ce6b-3a06-4342-b8dd-a8beace37e70.jpg"
+      icon: "Palette",
+      title: "Дизайн под заказ",
+      description: "Индивидуальное оформление"
     },
     {
-      title: "Информационные стенды для офиса",
-      category: "Информационные стенды",
-      image: "https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/30e8a29d-2ea7-4ee6-9c5c-869e99f25e13.jpg"
+      icon: "FileText",
+      title: "Гос. закупки",
+      description: "Работаем по 44-ФЗ и 223-ФЗ"
     }
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+    <div className="min-h-screen bg-white">
+      {/* Top Banner */}
+      <div className="bg-secondary text-white py-2">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-2">
-              <Icon name="Store" size={32} className="text-primary" />
-              <span className="text-2xl font-bold text-secondary">СтендыВсем</span>
+          <div className="flex items-center justify-center space-x-2 text-sm font-semibold">
+            <Icon name="Truck" size={18} />
+            <span>Бесплатная доставка по России!</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Header */}
+      <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
+            {/* Logo */}
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                <Icon name="Store" size={28} className="text-white" />
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-gray-900">СтендыВсем</div>
+                <div className="text-xs text-gray-500">Производитель стендов</div>
+              </div>
             </div>
 
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors font-medium">Услуги</a>
-              <a href="#portfolio" className="text-foreground hover:text-primary transition-colors font-medium">Портфолио</a>
-              <a href="#advantages" className="text-foreground hover:text-primary transition-colors font-medium">Преимущества</a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors font-medium">Контакты</a>
+            {/* Navigation */}
+            <nav className="hidden lg:flex items-center space-x-6">
+              <a href="#" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">Главная</a>
+              <a href="#" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">Как купить?</a>
+              <a href="#" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">Прайс-лист</a>
+              <a href="#" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">Гос. закупки</a>
+              <a href="#" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">Оплата</a>
+              <a href="#" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">Доставка</a>
+              <a href="#" className="text-sm text-gray-700 hover:text-primary transition-colors font-medium">Контакты</a>
             </nav>
 
+            {/* Contact & Cart */}
             <div className="flex items-center space-x-4">
-              <div className="hidden lg:flex items-center space-x-2 text-secondary">
-                <Icon name="Phone" size={20} />
-                <span className="font-semibold">8 (800) 100-95-94</span>
+              <div className="hidden xl:block">
+                <div className="text-right">
+                  <div className="text-lg font-bold text-gray-900">8 (800) 100-95-94</div>
+                  <div className="text-xs text-gray-500">info@stendivsem.ru</div>
+                </div>
               </div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
+              <Button size="sm" className="bg-primary hover:bg-primary/90">
                 Заказать звонок
+              </Button>
+              <Button size="sm" variant="outline" className="hidden md:flex items-center space-x-1">
+                <Icon name="ShoppingCart" size={18} />
+                <span>0 ₽</span>
               </Button>
             </div>
           </div>
@@ -105,68 +132,71 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 text-white py-24 lg:py-32">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'url("https://cdn.poehali.dev/projects/41dc2fb1-dcfc-4448-8a2d-602f3dd3fb22/files/fcd161a7-4017-4678-8fb3-1dfdb4b2a6f0.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-block bg-primary px-4 py-2 rounded-full text-sm font-semibold mb-6 animate-fade-in">
-              🚀 Бесплатная доставка по России
-            </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
-              Производство выставочных стендов и наружной рекламы
+      <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="mb-4 bg-primary text-white px-4 py-1 text-sm">
+              Интернет-магазин производителя
+            </Badge>
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Информационные стенды и вывески с доставкой по России
             </h1>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed animate-fade-in">
-              Разработка, производство и монтаж рекламных конструкций любой сложности. 
-              Индивидуальный подход к каждому проекту.
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Производство стендов для школ, детских садов, офисов и предприятий. 
+              Изготовление под заказ с индивидуальным дизайном.
             </p>
-            <div className="flex flex-wrap gap-4 animate-fade-in">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg">
-                <Icon name="MessageCircle" size={20} className="mr-2" />
-                Получить консультацию
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Icon name="ShoppingBag" size={20} className="mr-2" />
+                Перейти в каталог
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-secondary px-8 py-6 text-lg">
-                <Icon name="FolderOpen" size={20} className="mr-2" />
-                Смотреть портфолио
+              <Button size="lg" variant="outline">
+                <Icon name="Phone" size={20} className="mr-2" />
+                Заказать по e-mail
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-muted/30">
+      {/* Categories Grid */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-secondary mb-4">Наши услуги</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Полный цикл производства рекламной продукции — от разработки дизайна до монтажа
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Каталог продукции</h2>
+            <p className="text-gray-600">Выберите категорию товаров</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="aspect-[4/3] overflow-hidden">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((category, index) => (
+              <Card key={index} className="overflow-hidden group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
+                <div className="aspect-[4/3] overflow-hidden relative">
                   <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    src={category.image} 
+                    alt={category.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute top-4 left-4">
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <Icon name={category.icon as any} size={24} className="text-primary" />
+                    </div>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Icon name={service.icon as any} size={24} className="text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold text-secondary">{service.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                    {category.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{category.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {category.subcategories.map((sub, idx) => (
+                      <Badge key={idx} variant="secondary" className="text-xs">
+                        {sub}
+                      </Badge>
+                    ))}
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                  <Button variant="link" className="mt-4 px-0 text-primary font-semibold">
-                    Подробнее <Icon name="ArrowRight" size={16} className="ml-1" />
+                  <Button variant="link" className="px-0 text-primary font-semibold group-hover:gap-2 transition-all">
+                    Смотреть все
+                    <Icon name="ArrowRight" size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
               </Card>
@@ -175,168 +205,150 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-secondary mb-4">Наши работы</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Реализованные проекты для ведущих компаний России
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolio.map((item, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-2xl transition-all duration-300">
-                <div className="aspect-[4/3] overflow-hidden relative">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <span className="text-sm bg-primary px-3 py-1 rounded-full inline-block mb-2">{item.category}</span>
-                      <h3 className="text-xl font-bold">{item.title}</h3>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
-              Показать все работы
-              <Icon name="Grid" size={20} className="ml-2" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Advantages Section */}
-      <section id="advantages" className="py-20 bg-secondary text-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">Почему выбирают нас</h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Надежный партнер в сфере рекламного производства
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Почему выбирают нас</h2>
+            <p className="text-gray-600">Преимущества работы с производителем</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {advantages.map((advantage, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon name={advantage.icon as any} size={36} className="text-white" />
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Icon name={advantage.icon as any} size={32} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{advantage.title}</h3>
-                <p className="text-white/70 leading-relaxed">{advantage.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{advantage.title}</h3>
+                <p className="text-gray-600 text-sm">{advantage.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section id="contact" className="py-20 bg-muted/30">
+      {/* CTA Section */}
+      <section className="py-16 bg-primary text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-bold text-secondary mb-4">Оставьте заявку</h2>
-              <p className="text-lg text-muted-foreground">
-                Свяжемся с вами в течение 15 минут и ответим на все вопросы
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Нужна консультация?</h2>
+            <p className="text-lg text-white/90 mb-8">
+              Оставьте заявку, и наш менеджер свяжется с вами в течение 15 минут
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <Input 
+                placeholder="Ваше имя" 
+                className="bg-white text-gray-900 h-12"
+              />
+              <Input 
+                placeholder="+7 (___) ___-__-__" 
+                className="bg-white text-gray-900 h-12"
+              />
+              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white h-12 px-8">
+                Отправить
+              </Button>
+            </div>
+            <p className="text-sm text-white/70 mt-4">
+              Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Info Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <Icon name="Palette" size={20} className="mr-2 text-primary" />
+                Заказать дизайн
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Создадим индивидуальный дизайн стенда под ваши требования. 
+                Бесплатная визуализация при заказе.
               </p>
             </div>
-
-            <Card className="p-8 lg:p-12 shadow-xl">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-secondary">Ваше имя</label>
-                    <Input placeholder="Иван Иванов" className="h-12" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-secondary">Телефон</label>
-                    <Input placeholder="+7 (999) 123-45-67" className="h-12" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-secondary">Email</label>
-                  <Input type="email" placeholder="your@email.ru" className="h-12" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-secondary">Сообщение</label>
-                  <Textarea placeholder="Расскажите о вашем проекте..." rows={5} className="resize-none" />
-                </div>
-                <Button size="lg" className="w-full bg-primary hover:bg-primary/90 h-14 text-lg font-semibold">
-                  <Icon name="Send" size={20} className="mr-2" />
-                  Отправить заявку
-                </Button>
-                <p className="text-sm text-muted-foreground text-center">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                </p>
-              </form>
-            </Card>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <Icon name="FileCheck" size={20} className="mr-2 text-primary" />
+                Документы для гос. закупок
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Предоставляем полный пакет документов для участия в тендерах 
+                по 44-ФЗ и 223-ФЗ.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <Icon name="Headphones" size={20} className="mr-2 text-primary" />
+                Поддержка 24/7
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Консультируем по выбору, помогаем с оформлением заказа, 
+                отвечаем на любые вопросы.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-secondary text-white py-12">
+      <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Icon name="Store" size={28} className="text-primary" />
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <Icon name="Store" size={24} className="text-white" />
+                </div>
                 <span className="text-xl font-bold">СтендыВсем</span>
               </div>
-              <p className="text-white/70 leading-relaxed">
-                Профессиональное производство выставочных стендов и наружной рекламы с доставкой по всей России
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Производитель информационных стендов и вывесок с бесплатной доставкой по России
               </p>
             </div>
 
             <div>
-              <h4 className="font-bold text-lg mb-4">Услуги</h4>
-              <ul className="space-y-2 text-white/70">
-                <li><a href="#" className="hover:text-primary transition-colors">Выставочные стенды</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Наружная реклама</a></li>
+              <h4 className="font-bold text-base mb-4">Каталог</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="#" className="hover:text-primary transition-colors">Стенды для школы</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Стенды для детского сада</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Охрана труда</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Информационные стенды</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Вывески и таблички</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold text-lg mb-4">Компания</h4>
-              <ul className="space-y-2 text-white/70">
-                <li><a href="#" className="hover:text-primary transition-colors">О нас</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Портфолио</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Отзывы</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Контакты</a></li>
+              <h4 className="font-bold text-base mb-4">Покупателям</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="#" className="hover:text-primary transition-colors">Как купить?</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Оплата</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Доставка</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Гос. закупки</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold text-lg mb-4">Контакты</h4>
-              <ul className="space-y-3 text-white/70">
-                <li className="flex items-center space-x-2">
-                  <Icon name="Phone" size={18} className="text-primary" />
-                  <span>8 (800) 100-95-94</span>
+              <h4 className="font-bold text-base mb-4">Контакты</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start space-x-2 text-gray-400">
+                  <Icon name="Phone" size={16} className="text-primary mt-0.5" />
+                  <div>
+                    <div className="text-white font-semibold">8 (800) 100-95-94</div>
+                    <div className="text-xs">Бесплатный звонок</div>
+                  </div>
                 </li>
-                <li className="flex items-center space-x-2">
-                  <Icon name="Mail" size={18} className="text-primary" />
+                <li className="flex items-center space-x-2 text-gray-400">
+                  <Icon name="Mail" size={16} className="text-primary" />
                   <span>info@stendivsem.ru</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <Icon name="MapPin" size={18} className="text-primary" />
-                  <span>Москва, Россия</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8 text-center text-white/60">
-            <p>&copy; 2024 СтендыВсем. Все права защищены.</p>
+          <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+            <p>&copy; 2024 СтендыВсем - Производство информационных стендов. Все права защищены.</p>
           </div>
         </div>
       </footer>
